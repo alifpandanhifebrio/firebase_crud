@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159871794675",
+    "project_id": "joki-pam",
+    "storage_bucket": "joki-pam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159871794675:android:40c62cbe4af090805ea686",
+        "android_client_info": {
+          "package_name": "com.pam.crud_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyz7kEh0BRvmrIwCggvraSR8RGFznCz4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
