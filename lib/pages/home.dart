@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
                                     },
                                     child: const Icon(
                                       Icons.delete,
-                                      color: Colors.red,
+                                      color: Color(0xffff4f5a),
                                     ),
                                   )
                                 ],
@@ -129,12 +129,14 @@ class _HomeState extends State<Home> {
           Text(
             'Inventory',
             style: GoogleFonts.montserrat(
-                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue),
+                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
           ),
           Text(
             'App',
             style: GoogleFonts.montserrat(
-                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue),
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xffff4f5a)),
           )
         ],
       )),
@@ -150,129 +152,138 @@ class _HomeState extends State<Home> {
   Future EditEmployeeDetail(String id) => showDialog(
       context: context,
       builder: (context) => AlertDialog(
-            content: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(Icons.cancel),
-                      ),
-                      const SizedBox(
-                        width: 60,
-                      ),
-                      Text(
-                        'Edit',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Details',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Nama Barang',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  TextField(
-                    controller: namecontroller,
-                    decoration: InputDecoration(
-                        hintText: 'Masukkan Nama Barang',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                  ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Harga Barang',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  TextField(
-                    controller: agecontroller,
-                    decoration: InputDecoration(
-                        hintText: 'Masukkan Harga Barang',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                  ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Deskripsi Barang',
-                        style: GoogleFonts.montserrat(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  TextField(
-                    controller: locationcontroller,
-                    decoration: InputDecoration(
-                        hintText: 'Masukkan Deskripsi Barang',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8))),
-                  ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
-                  SizedBox(
-                    height: 50.0,
-                    width: MediaQuery.of(context).size.width,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff1a2e35),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                        onPressed: () async {
-                          Map<String, dynamic> updateInfo = {
-                            "Name": namecontroller.text,
-                            "Age": agecontroller.text,
-                            "Id": id,
-                            "location": locationcontroller.text
-                          };
-                          await DatabaseMethods()
-                              .updateEmployeeDetail(id, updateInfo)
-                              .then((value) {
+            content: SingleChildScrollView(
+              controller: ScrollController(),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
                             Navigator.pop(context);
-                          });
-                        },
-                        child: const Text('Update')),
-                  ),
-                ],
+                          },
+                          child: const Icon(Icons.cancel),
+                        ),
+                        const SizedBox(
+                          width: 60,
+                        ),
+                        Text(
+                          'Edit',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          'Details',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Name',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    TextField(
+                      controller: namecontroller,
+                      decoration: InputDecoration(
+                          hintText: 'Input Your Name',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                    ),
+                    const SizedBox(
+                      height: 16.0,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Age',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    TextField(
+                      controller: agecontroller,
+                      decoration: InputDecoration(
+                          hintText: 'Input Your Age',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                    ),
+                    const SizedBox(
+                      height: 16.0,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Location',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    TextField(
+                      controller: locationcontroller,
+                      decoration: InputDecoration(
+                          hintText: 'Input Your Location',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                    ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    SizedBox(
+                      height: 50.0,
+                      width: MediaQuery.of(context).size.width,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                          onPressed: () async {
+                            Map<String, dynamic> updateInfo = {
+                              "Name": namecontroller.text,
+                              "Age": agecontroller.text,
+                              "Id": id,
+                              "location": locationcontroller.text
+                            };
+                            await DatabaseMethods()
+                                .updateEmployeeDetail(id, updateInfo)
+                                .then((value) {
+                              Navigator.pop(context);
+                            });
+                          },
+                          child: const Text('Update Data')),
+                    ),
+                  ],
+                ),
               ),
             ),
           ));

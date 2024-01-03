@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crud_app/module/splash_screen/view/splash_screen_view.dart';
 import 'package:crud_app/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: Home(),
+// navigatorKey: Get.navigatorKey,
+      home: SplashScreenView(
+        child: Home(),
+      ),
     );
   }
 }

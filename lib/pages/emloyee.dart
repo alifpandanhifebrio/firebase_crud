@@ -19,8 +19,22 @@ class _EmployeeState extends State<Employee> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inventory App'),
-      ),
+          title: Row(
+        children: [
+          Text(
+            'Inventory',
+            style: GoogleFonts.montserrat(
+                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Text(
+            'App',
+            style: GoogleFonts.montserrat(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xffff4f5a)),
+          )
+        ],
+      )),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -32,7 +46,7 @@ class _EmployeeState extends State<Employee> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Nama Barang',
+                      'Nama',
                       style: GoogleFonts.montserrat(
                           fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -44,7 +58,7 @@ class _EmployeeState extends State<Employee> {
                 TextField(
                   controller: namecontroller,
                   decoration: InputDecoration(
-                      hintText: 'Masukkan Nama Barang',
+                      hintText: 'Input Your Name  ',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8))),
                 ),
@@ -55,7 +69,7 @@ class _EmployeeState extends State<Employee> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Harga Barang',
+                      'Age',
                       style: GoogleFonts.montserrat(
                           fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -67,7 +81,7 @@ class _EmployeeState extends State<Employee> {
                 TextField(
                   controller: agecontroller,
                   decoration: InputDecoration(
-                      hintText: 'Masukkan Harga Barang',
+                      hintText: 'Input Your Age',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8))),
                 ),
@@ -78,7 +92,7 @@ class _EmployeeState extends State<Employee> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Deskripsi Barang',
+                      'Location',
                       style: GoogleFonts.montserrat(
                           fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -90,7 +104,7 @@ class _EmployeeState extends State<Employee> {
                 TextField(
                   controller: locationcontroller,
                   decoration: InputDecoration(
-                      hintText: 'Masukkan Deskripsi Barang',
+                      hintText: 'Input Your Location',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8))),
                 ),
@@ -131,7 +145,7 @@ class _EmployeeState extends State<Employee> {
                       });
                       Navigator.pop(context);
                     },
-                    child: const Text('Create'),
+                    child: const Text('Add Data'),
                   ),
                 ),
               ],
