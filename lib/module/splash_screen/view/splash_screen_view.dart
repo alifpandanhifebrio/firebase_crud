@@ -14,7 +14,7 @@ class SplashScreenView extends StatefulWidget {
       body: Center(
         child: RichText(
           text: TextSpan(
-            text: 'Inventory',
+            text: 'Data ',
             style: GoogleFonts.montserrat(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,

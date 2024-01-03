@@ -22,7 +22,7 @@ class _EmployeeState extends State<Employee> {
           title: Row(
         children: [
           Text(
-            'Inventory',
+            'Data ',
             style: GoogleFonts.montserrat(
                 fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
           ),
