@@ -114,7 +114,7 @@ class _EmployeeState extends State<Employee> {
                         "Name": namecontroller.text,
                         "Age": agecontroller.text,
                         "Id": Id,
-                        "location":locationcontroller.text
+                        "location": locationcontroller.text
                       };
                       await DatabaseMethods()
                           .addEmployeeDetails(employeeInfoMap, Id)
@@ -129,6 +129,7 @@ class _EmployeeState extends State<Employee> {
                             textColor: Colors.white,
                             fontSize: 16.0);
                       });
+                      Navigator.pop(context);
                     },
                     child: const Text('Create'),
                   ),
